@@ -73,10 +73,10 @@ Follow these steps to set up and run the application on your local machine:
     ```bash
     python src/main.py
     ```
-    The server will start, typically listening on `http://127.0.0.1:5000/` or `http://0.0.0.0:5000/`.
+    The server will start, typically listening on `http://127.0.0.1:8000/` or `http://0.0.0.0:8000/`.
 
 3.  **Access the Web Interface:**
-    Open your web browser and navigate to `http://127.0.0.1:5000/` (or the URL shown in the terminal).
+    Open your web browser and navigate to `http://127.0.0.1:8000/` (or the URL shown in the terminal).
 
 4.  **Create Jira Issue:**
     *   Fill in your Jira instance URL, email, API token, project key, issue summary, and issue type.
@@ -88,6 +88,6 @@ Follow these steps to set up and run the application on your local machine:
 ## Notes
 
 *   **Security:** Your Jira API token is sent from your browser to the local Flask application. Ensure you trust the environment where you run this application.
-*   **Ollama Model:** The application currently defaults to using the `orca-mini` model. If you want to use a different model, you will need to edit the `model=\'orca-mini\'` part in the `src/main.py` file (around line 76) and ensure that model is available in your Ollama instance.
+*   **Ollama Model:** The application currently defaults to using the `llama3.2` model. If you want to use a different model, you will need to edit the `model='llama3.2'` part in the `src/main.py` file (around line 76) and ensure that model is available in your Ollama instance.
 *   **Error Handling:** Basic error handling is included for connection issues with Ollama and Jira, and for missing fields. Check the terminal where `python src/main.py` is running for detailed logs if you encounter issues.
 
