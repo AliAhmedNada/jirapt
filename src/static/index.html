@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JiraPT</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container" style="text-align: center;">
+        <!-- Top image -->
+        <img src="favicon.png" 
+             alt="JiraPT" 
+             style="width:120px; margin-top:30px; margin-bottom:10px;">
+        <!-- Powered by text -->
+        <p style="font-weight: bold; color: #205081; margin-bottom: 30px;">Powered by jirapt</p>
+        <h1>JiraPT</h1>
+        <form id="jira-form">
+            <div class="form-group">
+                <label for="jira-url">Jira URL:</label>
+                <input type="url" id="jira-url" name="jira_url" placeholder="https://your-domain.atlassian.net" required>
+            </div>
+            <div class="form-group">
+                <label for="jira-email">Jira Email:</label>
+                <input type="email" id="jira-email" name="jira_email" placeholder="your.email@example.com" required>
+            </div>
+            <div class="form-group">
+                <label for="api-token">Jira API Token:</label>
+                <input type="password" id="api-token" name="api_token" placeholder="Enter your Jira API Token" required>
+                <small>Your API token will be used directly for the request. Handle with care.</small>
+            </div>
+            <div class="form-group">
+                <label for="project-key">Project Key:</label>
+                <input type="text" id="project-key" name="project_key" placeholder="e.g., PROJ" required>
+            </div>
+            <div class="form-group">
+                <label for="issue-summary">Issue Summary:</label>
+                <input type="text" id="issue-summary" name="issue_summary" placeholder="e.g., Functional Testing for New Feature" required>
+            </div>
+            <div class="form-group">
+                <label for="issue-type">Issue Type:</label>
+                <input type="text" id="issue-type" name="issue_type" value="Task" required>
+            </div>
+            <div class="form-group">
+                <label for="ollama-prompt">Ollama Prompt for Description:</label>
+                <textarea id="ollama-prompt" name="ollama_prompt" rows="5" required>Write a detailed Jira ticket description for functional testing of a new feature. Include test objectives, acceptance criteria, and steps to verify the feature works as intended.</textarea>
+            </div>
+            <button type="submit" id="submit-btn">Generate & Create Issue</button>
+        </form>
+        <div id="result-area">
+            <h2>Result:</h2>
+            <pre id="result-output">Waiting for submission...</pre>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
