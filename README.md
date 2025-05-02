@@ -1,5 +1,4 @@
-<video src="movie.mp4" controls width="600"></video>
-
+![JiraPT](demo.gif)
 
 <p align="center">
   <img src="image.png" alt="Project Logo" width="300" height="300">
