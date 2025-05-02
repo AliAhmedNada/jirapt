@@ -1,3 +1,6 @@
+<video src="movie.mov" controls width="600"></video>
+
+
 <p align="center">
   <img src="image.png" alt="Project Logo" width="300" height="300">
 </p>
