@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 import sys
 import os
-from dotenv import load_dotenv # Import load_dotenv
-sys.path.insert(0, os.path.dirname(os.path.dirname(__file__))) # DON'T CHANGE THIS !!!
+from dotenv import load_dotenv  # Import load_dotenv
+sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))  # DON'T CHANGE THIS !!!
 
 # Load environment variables from .env file
 load_dotenv()
@@ -51,7 +51,7 @@ def create_jira_issue():
     field_names = ['jira_url', 'jira_email', 'api_token', 'project_key', 'issue_summary', 'issue_type', 'OLLAMA_HOST (in .env)', 'ollama_prompt']
     if not all(required_fields):
         missing = [name for name, val in zip(field_names, required_fields) if not val]
-        return jsonify({'error': f'Missing required fields: {', '.join(missing)}'}), 400
+        return jsonify({'error': f"Missing required fields: {','.join(missing)}"}), 400
 
     # Ensure Jira URL ends with a slash for consistency
     if not jira_url.endswith('/'):
@@ -65,7 +65,7 @@ def create_jira_issue():
         try:
             # Ensure the URL has a scheme (like http://)
             if not ollama_host.startswith(('http://', 'https://')):
-                ollama_host_url = 'http://' + ollama_host # Default to http if no scheme
+                ollama_host_url = 'http://' + ollama_host  # Default to http if no scheme
             else:
                 ollama_host_url = ollama_host
 
@@ -79,7 +79,7 @@ def create_jira_issue():
 
         logging.info(f'Generating description with Ollama using prompt: {ollama_prompt[:100]}...')
         # Use the client connected to the user's Ollama instance
-        ollama_response = client.generate(model='llama3.2', prompt=ollama_prompt) # Assuming orca-mini is available on user's instance
+        ollama_response = client.generate(model='llama3.2', prompt=ollama_prompt)  # Assuming orca-mini is available on user's instance
         description = ollama_response['response']
         logging.info('Ollama description generated successfully.')
 
@@ -111,9 +111,10 @@ def create_jira_issue():
             response_data = response.json()
             # Check for specific Jira errors in the response
             if response.status_code >= 400 and 'errorMessages' in response_data:
-                 logging.error(f'Jira API Error: {response_data['errorMessages']}')
+                # FIXED: Use double quotes for the f-string or for the key
+                logging.error(f"Jira API Error: {response_data['errorMessages']}")
             if response.status_code >= 400 and 'errors' in response_data:
-                 logging.error(f'Jira API Field Errors: {response_data['errors']}')
+                logging.error(f"Jira API Field Errors: {response_data['errors']}")
 
         except json.JSONDecodeError:
             logging.error(f'Failed to decode Jira API JSON response. Status: {response.status_code}, Body: {response.text}')
@@ -140,4 +141,3 @@ if __name__ == '__main__':
     # Run on 0.0.0.0 to be accessible from network if needed
     # Debug mode should be off for typical local running, but can be enabled for troubleshooting
     app.run(host='0.0.0.0', port=8000, debug=False)
-
