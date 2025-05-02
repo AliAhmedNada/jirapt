@@ -1,4 +1,4 @@
-<video src="movie.mov" controls width="600"></video>
+<video src="movie.mp4" controls width="600"></video>
 
 
 <p align="center">
