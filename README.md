@@ -19,17 +19,16 @@ Follow these steps to set up and run the application on your local machine:
 1.  **Prerequisites:**
     *   Python 3.7+ installed.
     *   `pip` (Python package installer) installed.
-    *   Ollama installed and running on your machine or accessible on your network. Ensure the model you intend to use (e.g., `orca-mini`) is pulled (`ollama pull orca-mini`).
+    *   Ollama installed and running on your machine or accessible on your network. Ensure the model you intend to use (e.g., `llama3.2`) is pulled (`llama3.2`).
     *   Git (optional, for cloning).
 
 2.  **Download the Application:**
-    *   Extract the `jira_creator_app.zip` file provided.
-    *   Alternatively, if you have Git, you can clone the repository (assuming it was put in one).
+    *  if you have Git, you can clone the repository (assuming it was put in one).
 
 3.  **Navigate to Project Directory:**
-    Open your terminal or command prompt and change directory into the extracted `jira_creator_app` folder:
+    Open your terminal or command prompt and change directory into the extracted `jirapt` folder:
     ```bash
-    cd path/to/jira_creator_app
+    cd path/to/jirapt
     ```
 
 4.  **Create and Activate Virtual Environment:**
