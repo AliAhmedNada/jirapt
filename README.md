@@ -1,5 +1,6 @@
-![Project Logo](image.png)
-
+<p align="center">
+  <img src="image.png" alt="Project Logo" width="500" height="500">
+</p>
 
 # Jira Issue Creator with Ollama
 
